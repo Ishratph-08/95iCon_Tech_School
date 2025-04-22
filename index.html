@@ -1,11 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>95iCON Tech School Project</title>
-</head>
-<body>
-    <h1>Welcome to 95iCON Tech School</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>School Management</title>
+  </head>
+  <body>
+    <!-- top nav -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <img
+          src="./logo.png"
+          alt="Logo"
+          class="nav-logo"
+        />
+        <span>School Management System</span>
+      </div>
+      <div class="nav-links">
+        <a href="#" class="nav-link active">Login</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- sidebar -->
+      <div class="sidebar">
+        <!-- school header -->
+        <div class="school-header">
+          <img
+          src="./logo.png"
+
+            alt="logo-here"
+            class="school-logo"
+          />
+          <h2>Hello School</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+
+        <!-- nav menu -->
+        <div class="nav-menu">
+          <button onclick="showSection('dashboard')">Dashboard</button>
+
+          <button onclick="showSection('students')">Students</button>
+
+          <button onclick="showSection('notices')">Notices</button>
+          <button onclick="showSection('settings')">Settings</button>
+        </div>
+
+        <div class="version-info">Version 2.0</div>
+      </div>
+
+      <!-- main container -->
+      <div class="main-content">
+        <!-- Dashboard Section -->
+        <div id="dashboardSection">
+          <div class="dashboard-card">
+            <h3>Total Students</h3>
+            <h1 id="totalStudents">0</h1>
+          </div>
+          <div class="notice-board">
+            <h3>Latest Notices</h3>
+            <div id="dashboardNotices">
+              <!-- Latest notices will be rendered here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Students Section -->
+        <div id="studentsSection" class="hidden">
+          <div class="dashboard-card">
+            <h2>Student Management</h2>
+            <div class="form-group">
+              <button onclick="showSection('admit')" class="action-btn">Admit New Student</button>
+            </div>
+            <table class="student-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Class</th>
+                  <th>Roll</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="studentListBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Admit Student Section -->
+        <div id="admitSection" class="hidden">
+          <div class="dashboard-card">
+            <h2>Admit New Student</h2>
+            <form id="admitForm" class="form">
+              <div class="form-group">
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName" required>
+              </div>
+              <div class="form-group">
+                <label for="studentClass">Class</label>
+                <input type="text" id="studentClass" required>
+              </div>
+              <div class="form-group">
+                <label for="studentRoll">Roll Number</label>
+                <input type="text" id="studentRoll" required>
+              </div>
+              <button type="submit" class="btn">Admit Student</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Notices Section -->
+        <div id="noticesSection" class="hidden">
+          <div class="dashboard-card">
+            <h2>Create New Notice</h2>
+            <form id="noticeForm" class="form">
+              <div class="form-group">
+                <label for="noticeTitle">Notice Title:</label>
+                <input type="text" id="noticeTitle" required>
+              </div>
+              <div class="form-group">
+                <label for="noticeContent">Notice Content:</label>
+                <textarea id="noticeContent" required></textarea>
+              </div>
+              <button type="submit" class="btn">Publish Notice</button>
+            </form>
+          </div>
+          
+          <div class="dashboard-card">
+            <h2>All Notices</h2>
+            <div id="noticesList" class="notices-list">
+              <!-- Notices will be rendered here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div id="settingsSection" class="hidden">
+          <div class="dashboard-card">
+            <h2>School Settings</h2>
+            <form id="schoolSettings">
+              <div class="form-group">
+                <label>School Name:</label>
+                <input type="text" id="inputSchoolName" required />
+              </div>
+              <div class="form-group">
+                <label>School Slogan:</label>
+                <input type="text" id="inputSchoolSlogan" required />
+              </div>
+              <div class="form-group">
+                <label>Logo URL:</label>
+                <input type="url" id="inputSchoolLogo" required />
+              </div>
+              <button type="submit">Save Settings</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+             <!-- Script -->
+      <script src="./script.js"></script>
+    </div>
+  </body>
 </html>
